@@ -1,0 +1,13 @@
+{
+  "name": "react-do",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "global": "^4.3.2",
+    "prettier": "^1.7.4"
+  },
+  "scripts": {
+    "react-do": "node index.js"
+  }
+}

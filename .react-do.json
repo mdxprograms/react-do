@@ -1,0 +1,26 @@
+{
+  "templatesDir": "./example-templates",
+  "templates": {
+    "component": {
+      "ext": "js",
+      "destination": "./components/"
+    },
+    "container": {
+      "ext": "js",
+      "destination": "./components/"
+    },
+    "model": {
+      "ext": "js",
+      "destination": "./models/"
+    },
+    "actions": {
+      "ext": "js",
+      "destination": "./actions/"
+    },
+    "store": {
+      "ext": "js",
+      "destination": "./stores/"
+    }
+  },
+  "scaffold": ["component", "container", "model", "actions", "store"]
+}
