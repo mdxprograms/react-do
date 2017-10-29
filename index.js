@@ -5,52 +5,52 @@ const path = require("path");
 checkArgLength();
 
 if (!fs.existsSync(".react-do.json")) {
-  console.log(
+  return console.log(
     "Please create your .react-do.json config file in your projects root directory."
   );
-} else {
-  // read config and generate file
-  fs.readFile(".react-do.json", "utf8", (err, data) => {
-    const config = JSON.parse(data);
+}
 
-    verifyTemplatesDir(config);
-    verifyTemplates(config);
+// read config and generate file
+fs.readFile(".react-do.json", "utf8", (err, data) => {
+  const config = JSON.parse(data);
 
-    const templatesDir = config.templatesDir;
-    const templates = config.templates;
-    const found = templateExists(templates, process.argv[2]);
-    const isScaffold =
-      process.argv[2] === "scaffold" && config.hasOwnProperty("scaffold");
-    let template = {};
-    let templateContent = "";
+  verifyTemplatesDir(config);
+  verifyTemplates(config);
 
-    if (isScaffold) {
-      const scaffoldName = process.argv[3];
-      config.scaffold.map(templateType => {
-        template = {
-          name: templateType,
-          options: config.templates[templateType]
-        };
+  const templatesDir = config.templatesDir;
+  const templates = config.templates;
+  const found = templateExists(templates, process.argv[2]);
+  const isScaffold =
+    process.argv[2] === "scaffold" && config.hasOwnProperty("scaffold");
+  let template = {};
+  let templateContent = "";
 
-        templateContent = getTemplateContents(templatesDir, template);
-        createDirIfNoExist(template.options.destination);
-        createNewFile(template, templateContent);
-      });
-    } else if (found) {
+  if (isScaffold) {
+    const scaffoldName = process.argv[3];
+    config.scaffold.map(templateType => {
       template = {
-        name: process.argv[2],
-        options: config.templates[process.argv[2]]
+        name: templateType,
+        options: config.templates[templateType]
       };
+
       templateContent = getTemplateContents(templatesDir, template);
       createDirIfNoExist(template.options.destination);
       createNewFile(template, templateContent);
-    } else {
-      return console.log(
-        "Template file does not exist in your templatesDir path specified in .react-do.json"
-      );
-    }
-  });
-}
+    });
+  } else if (found) {
+    template = {
+      name: process.argv[2],
+      options: config.templates[process.argv[2]]
+    };
+    templateContent = getTemplateContents(templatesDir, template);
+    createDirIfNoExist(template.options.destination);
+    createNewFile(template, templateContent);
+  } else {
+    return console.log(
+      "Template file does not exist in your templatesDir path specified in .react-do.json"
+    );
+  }
+});
 
 // verification checks
 function verifyTemplatesDir(config) {
