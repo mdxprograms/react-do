@@ -1,7 +1,22 @@
 # { React Do }
 
 React Do helps save time by reading `.react-do.json` in your project root and creating
-new a new file based on the configuration parameters and the `templatesDir` template you provide.
+a new file based on the configuration parameters and the `templatesDir` template you provide.
+
+```bash
+react-do component HelloWorld
+```
+
+You can also specify a nested filepath
+
+```bash
+react-do component People/person-list
+```
+
+This will then create this file based off the configuration example below
+
+`./components/People/person-list.js`
+
 
 ## .react-do.json configuration example in project root
 
