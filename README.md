@@ -58,8 +58,24 @@ The script works off of the `templates` keys for finding the correct template in
 
 If the `destination` doesn't exist it will create it for you.
 
-Both `ext` and `destination` are mandatory, but you may also pass in a default `filename` as well.
+Both `ext` and `destination` are mandatory.
 
+An example template created in `./example-templates/component.js`
+
+```javascript
+import React from 'react';
+
+const YourComponent = () => (
+  <div className="">
+  • <div>I am render, bringer of fun</div>
+  </div>
+);
+
+export default YourComponent;
+```
+
+This will then create a component with your supplied filename via `react-do component YourComponent`
+in `./components/YourComponent.js`
 
 ## Scaffold
 
