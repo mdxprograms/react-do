@@ -14,8 +14,11 @@ if (!fs.existsSync(".react-do.json")) {
 
 // read config and generate file
 fs.readFile(".react-do.json", "utf8", (err, data) => {
+  if (err) throw err;
+
   const config = JSON.parse(data);
 
+  // verify both templatesDir and templates exist in config
   verifyTemplatesDir(config);
   verifyTemplates(config);
 
@@ -29,6 +32,7 @@ fs.readFile(".react-do.json", "utf8", (err, data) => {
 
   if (isScaffold) {
     const scaffoldName = process.argv[3];
+
     config.scaffold.map(templateType => {
       template = {
         name: templateType,
@@ -36,7 +40,9 @@ fs.readFile(".react-do.json", "utf8", (err, data) => {
       };
 
       templateContent = getTemplateContents(templatesDir, template);
+
       createDirIfNoExist(template.options.destination);
+
       createNewFile(template, templateContent);
     });
   } else if (found) {
@@ -44,8 +50,11 @@ fs.readFile(".react-do.json", "utf8", (err, data) => {
       name: process.argv[2],
       options: config.templates[process.argv[2]]
     };
+
     templateContent = getTemplateContents(templatesDir, template);
+
     createDirIfNoExist(template.options.destination);
+
     createNewFile(template, templateContent);
   } else {
     return console.log(
@@ -116,6 +125,7 @@ function createNewFile(template, templateContent) {
 
   fs.writeFile(writePath, templateContent, { flag: "a+" }, function(err) {
     if (err) throw err;
+
     console.log(templateName + " created in " + writePath);
   });
 }
