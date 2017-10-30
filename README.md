@@ -4,13 +4,13 @@ React Do helps save time by reading `.react-do.json` in your project root and cr
 a new file based on the configuration parameters and the `templatesDir` template you provide.
 
 ```bash
-react-do component HelloWorld
+yarn react-do component HelloWorld
 ```
 
 You can also specify a nested filepath
 
 ```bash
-react-do component People/person-list
+yarn react-do component People/person-list
 ```
 
 This will then create this file based off the configuration example below
@@ -74,7 +74,7 @@ const YourComponent = () => (
 export default YourComponent;
 ```
 
-This will then create a component with your supplied filename via `react-do component YourComponent`
+This will then create a component with your supplied filename via `yarn react-do component YourComponent`
 in `./components/YourComponent.js`
 
 ## Scaffold
@@ -84,7 +84,7 @@ You can also setup a scaffolding command by adding the templates you want to get
 example command using the config above:
 
 ```bash
-react-do scaffold People
+yarn react-do scaffold People
 ```
 
 This would then create `./components/People.js`, `./models/People.js`, `./actions/People.js`, `./stores/People.js`
