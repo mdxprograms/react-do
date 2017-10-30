@@ -1,5 +1,15 @@
 # { React Do }
 
+## Install
+
+`yarn add react-do --dev`
+
+or
+
+`npm i react-do --save-dev`
+
+## Description
+
 React Do helps save time by reading `.react-do.json` in your project root and creating
 a new file based on the configuration parameters and the `templatesDir` template you provide.
 
@@ -18,7 +28,9 @@ This will then create this file based off the configuration example below
 `./components/People/person-list.js`
 
 
-## .react-do.json configuration example in project root
+## Configuration
+
+.react-do.json configuration example in project root
 
 ```json
 {
