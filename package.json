@@ -1,7 +1,19 @@
 {
   "name": "react-do",
-  "version": "1.0.0",
+  "description": "A react file generator",
+  "keywords": "react, file generator, reactjs, components, scaffolding",
+  "version": "1.0.1",
+  "homepage": "https://github.com/mdxprograms/react-do",
+  "repository" : {
+    "type" : "git",
+    "url":"git@github.com:mdxprograms/react-do.git"
+  },
+  "author": "Josh Waller <josh@joshwaller.me> (https://github.com/mdxprograms)",
+  "bugs": "https://github.com/mdxprograms/react-do/issues",
   "main": "index.js",
+  "bin": {
+    "react-do": "./index.js"
+  },
   "license": "MIT",
   "dependencies": {
     "global": "^4.3.2",
