@@ -20,12 +20,12 @@ yarn react-do component HelloWorld
 You can also specify a nested filepath
 
 ```bash
-yarn react-do component People/person-list
+yarn react-do component People/PersonList
 ```
 
 This will then create this file based off the configuration example below
 
-`./components/People/person-list.js`
+`./components/People/PersonList.js`
 
 
 ## Configuration

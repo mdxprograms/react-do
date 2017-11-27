@@ -2,7 +2,7 @@
   "name": "react-do",
   "description": "A react file generator",
   "keywords": "react, file generator, reactjs, components, scaffolding",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "homepage": "https://github.com/mdxprograms/react-do",
   "repository" : {
     "type" : "git",
